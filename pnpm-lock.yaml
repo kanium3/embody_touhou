@@ -10,7 +10,7 @@ importers:
     dependencies:
       typia:
         specifier: ^8.0.2
-        version: 8.0.2(typescript@5.8.2)
+        version: 8.0.2(@samchon/openapi@3.0.0)(typescript@5.8.2)
     devDependencies:
       '@biomejs/biome':
         specifier: 1.9.4
@@ -19,8 +19,8 @@ importers:
         specifier: ^4.2.0
         version: 4.2.0(svelte@5.23.0)
       '@ryoppippi/unplugin-typia':
-        specifier: npm:@jsr/ryoppippi__unplugin-typia@^1.2.0
-        version: '@jsr/ryoppippi__unplugin-typia@1.2.0(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.35.0)'
+        specifier: ^2.0.3
+        version: 2.0.3(rollup@4.35.0)(svelte@5.23.0)(typescript@5.8.2)(typia@8.0.2(@samchon/openapi@3.0.0)(typescript@5.8.2))(vite@6.2.1(jiti@2.4.2)(lightningcss@1.29.2))
       '@sveltejs/adapter-auto':
         specifier: ^4.0.0
         version: 4.0.0(@sveltejs/kit@2.19.0(@sveltejs/vite-plugin-svelte@5.0.3(svelte@5.23.0)(vite@6.2.1(jiti@2.4.2)(lightningcss@1.29.2)))(svelte@5.23.0)(vite@6.2.1(jiti@2.4.2)(lightningcss@1.29.2)))
@@ -290,9 +290,6 @@ packages:
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
 
-  '@jsr/ryoppippi__unplugin-typia@1.2.0':
-    resolution: {integrity: sha512-WslO8hg5nbTRn1LD+fYpHub1CnwOg1y3+ezjrRH6gdAXdamr9n4Vr3COe5ejE8EjM6Ai+5WgTlOT0NJMu7w3MQ==, tarball: https://npm.jsr.io/~/11/@jsr/ryoppippi__unplugin-typia/1.2.0.tgz}
-
   '@polka/url@1.0.0-next.28':
     resolution: {integrity: sha512-8LduaNlMZGwdZ6qWrKlfa+2M4gahzFkprZiAt2TF8uS0qQgBizKXpXURqvTJ4WtmupWxaLqjRb2UCTe72mu+Aw==}
 
@@ -399,6 +396,22 @@ packages:
     resolution: {integrity: sha512-PIQeY5XDkrOysbQblSW7v3l1MDZzkTEzAfTPkj5VAu3FW8fS4ynyLg2sINp0fp3SjZ8xkRYpLqoKcYqAkhU1dw==}
     cpu: [x64]
     os: [win32]
+
+  '@ryoppippi/unplugin-typia@2.0.3':
+    resolution: {integrity: sha512-1kEqo3kQzf+2YchQ27p654zUQU68yue6JTUR6VmECsOKgAOnAOOKib+3MCVtnMw8AhzqUGtf8c83mQcXIZ5Mew==}
+    peerDependencies:
+      svelte: ^5.0.0
+      typescript: '>=4.8.0 <5.9.0'
+      typia: '>=8.0.0 <9.0.0'
+      vite: '>=3.0.0'
+    peerDependenciesMeta:
+      svelte:
+        optional: true
+      vite:
+        optional: true
+
+  '@samchon/openapi@3.0.0':
+    resolution: {integrity: sha512-eVQlyKRYv1/C2Mikc1xZr7c0jMjg1vjPkeY/gheKB4c5WOOWyTNZ1uvnXR+ETpPHwaQ54I9NrQZhoNk6BEGuuw==}
 
   '@sveltejs/acorn-typescript@1.0.5':
     resolution: {integrity: sha512-IwQk4yfwLdibDlrXVE04jTZYlLnwsTT2PIOQQGNLWfjavGifnk1JD1LcZjZaBTRcxZu2FfPfNLOE04DSu9lqtQ==}
@@ -609,8 +622,8 @@ packages:
   common-path-prefix@3.0.0:
     resolution: {integrity: sha512-QE33hToZseCH3jS0qN96O/bSh3kaw/h+Tq7ngyY9eWDUnTlTNUyqfqvCXioLe5Na5jFsL78ra/wuBU4iuEgd4w==}
 
-  confbox@0.1.8:
-    resolution: {integrity: sha512-RMtmw0iFkeR4YV+fUOSucriAQNb9g8zFR52MWCtl+cCZOFRNL6zeB395vPzFhEjjn4fMxXudmELnl/KF/WrK6w==}
+  confbox@0.2.1:
+    resolution: {integrity: sha512-hkT3yDPFbs95mNCy1+7qNKC6Pro+/ibzYxtM2iqEigpf0sVw+bg4Zh9/snjsBcf990vfIsg5+1U7VyiyBb3etg==}
 
   consola@3.4.0:
     resolution: {integrity: sha512-EiPU8G6dQG0GFHNR8ljnZFki/8a+cQwEQ+7wpxdChl02Q8HXlwEZWD5lqAF8vC2sEC3Tehr8hy7vErz88LHyUA==}
@@ -685,6 +698,9 @@ packages:
 
   estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
+
+  exsolve@1.0.4:
+    resolution: {integrity: sha512-xsZH6PXaER4XoV+NiT7JHp1bJodJVT+cxeSH1G0f0tlT0lJqYuHUP3bUx2HtfTDvOagMINYp8rsqusxud3RXhw==}
 
   external-editor@3.1.0:
     resolution: {integrity: sha512-hMQ4CX1p1izmuLYyZqLMO/qGNw10wSv9QDCPfzXfyFrOaCSSoRfqE1Kf1s5an66J5JZC62NewG+mK49jOCtQew==}
@@ -881,9 +897,6 @@ packages:
   minimist@1.2.8:
     resolution: {integrity: sha512-2yyAR8qBkN3YuheJanUpWC5U3bb5osDywNB8RzDVlDwDHbocAJveqqj1u8+SVD7jkWT4yvsHCpWqqWqAxb0zCA==}
 
-  mlly@1.7.4:
-    resolution: {integrity: sha512-qmdSIPC4bDJXgZTCR7XosJiNKySV7O215tsPtDN9iEO/7q/76b/ijtgRu/+epFXSJhijtTCCGp3DWS549P3xKw==}
-
   mri@1.2.0:
     resolution: {integrity: sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA==}
     engines: {node: '>=4'}
@@ -933,9 +946,6 @@ packages:
   path-parse@1.0.7:
     resolution: {integrity: sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==}
 
-  pathe@1.1.2:
-    resolution: {integrity: sha512-whLdWMYL2TwI08hn8/ZqAbrVemu0LNaNNJZX73O6qaIdCTfXutsLhMkjdENX0qhsQ9uIimo4/aQOmXkoon2nDQ==}
-
   pathe@2.0.3:
     resolution: {integrity: sha512-WUjGcAqP1gQacoQe+OBJsFA7Ld4DyXuUIjZ5cc75cLHvJ7dtNsTugphxIADwspS+AraAUePCKrSVtPLFj/F88w==}
 
@@ -950,8 +960,8 @@ packages:
     resolution: {integrity: sha512-Ie9z/WINcxxLp27BKOCHGde4ITq9UklYKDzVo1nhk5sqGEXU3FpkwP5GM2voTGJkGd9B3Otl+Q4uwSOeSUtOBA==}
     engines: {node: '>=14.16'}
 
-  pkg-types@1.3.1:
-    resolution: {integrity: sha512-/Jm5M4RvtBFVkKWRu2BLUTNP8/M2a+UwuAX+ae4770q1qVGtfjG+WTCupoZixokjmHiry8uI+dlY8KXYV5HVVQ==}
+  pkg-types@2.1.0:
+    resolution: {integrity: sha512-wmJwA+8ihJixSoHKxZJRBQG1oY8Yr9pGLzRmSsNms0iNWyHHAlZCa7mmKiFR10YPZuz/2k169JiS/inOjBCZ2A==}
 
   postcss@8.5.3:
     resolution: {integrity: sha512-dle9A3yYxlBSrt8Fu+IpjGT8SY8hN0mlaA6GY8t0P5PjIOZemULz/E2Bnm/2dcUOena75OTNkHI76uZBNUUq3A==}
@@ -1094,22 +1104,10 @@ packages:
     resolution: {integrity: sha512-S/5/0kFftkq27FPNye0XM1e2NsnoD/3FS+pBmbjmmtLT6I+i344KoOf7pvXreaFsDamWeaJX55nczA1m5PsBDg==}
     engines: {node: '>=16'}
 
-  typescript@5.6.3:
-    resolution: {integrity: sha512-hjcS1mhfuyi4WW8IWtjP7brDrG2cuDZukyrYrSauoXGNgx0S7zceP07adYkJycEr56BOUTNPzbInooiN3fn1qw==}
-    engines: {node: '>=14.17'}
-    hasBin: true
-
   typescript@5.8.2:
     resolution: {integrity: sha512-aJn6wq13/afZp/jT9QZmwEjDqqvSGp1VT5GVg+f/t6/oVyrgXM6BY1h9BRh/O5p3PlUPAe+WuiEZOmb/49RqoQ==}
     engines: {node: '>=14.17'}
     hasBin: true
-
-  typia@7.6.4:
-    resolution: {integrity: sha512-Z3AcvGBjS7Dc7+iAG2VhsT0NIv3HMoXVTJ3F7Pgth8z7rhQu1JnyS8GGqqWdKk5ROvOgALEVEWmWv3Lym2eBIg==}
-    hasBin: true
-    peerDependencies:
-      '@samchon/openapi': '>=2.4.2 <3.0.0'
-      typescript: '>=4.8.0 <5.8.0'
 
   typia@8.0.2:
     resolution: {integrity: sha512-xDacELBticuXx17TtPWhSd1thyE2MF74LZhhDoCFkpCKhiElnB40X/Jb3zMLRx86WUkqCH60rwm3ghaJdBs7hA==}
@@ -1118,12 +1116,9 @@ packages:
       '@samchon/openapi': '>=3.0.0 <4.0.0'
       typescript: '>=4.8.0 <5.9.0'
 
-  ufo@1.5.4:
-    resolution: {integrity: sha512-UsUk3byDzKd04EyoZ7U4DOlxQaD14JUKQl6/P7wiX4FNvUfm3XL246n9W5AmqwW5RSFJ27NAuM0iLscAOYUiGQ==}
-
-  unplugin@1.16.1:
-    resolution: {integrity: sha512-4/u/j4FrCKdi17jaxuJA0jClGxB1AvU2hw/IuayPc4ay1XGaJs/rbb4v5WKwAjNifjmXK9PIFyuPiaK8azyR9w==}
-    engines: {node: '>=14.0.0'}
+  unplugin@2.2.0:
+    resolution: {integrity: sha512-m1ekpSwuOT5hxkJeZGRxO7gXbXT3gF26NjQ7GdVHoLoF8/nopLcd/QfPigpCy7i51oFHiRJg/CyHhj4vs2+KGw==}
+    engines: {node: '>=18.12.0'}
 
   util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
@@ -1339,36 +1334,6 @@ snapshots:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  '@jsr/ryoppippi__unplugin-typia@1.2.0(jiti@2.4.2)(lightningcss@1.29.2)(rollup@4.35.0)':
-    dependencies:
-      '@rollup/pluginutils': 5.1.4(rollup@4.35.0)
-      consola: 3.4.0
-      defu: 6.1.4
-      diff-match-patch: 1.0.5
-      find-cache-dir: 5.0.0
-      magic-string: 0.30.17
-      pathe: 1.1.2
-      pkg-types: 1.3.1
-      type-fest: 4.37.0
-      typescript: 5.6.3
-      typia: 7.6.4(typescript@5.6.3)
-      unplugin: 1.16.1
-      vite: 6.2.1(jiti@2.4.2)(lightningcss@1.29.2)
-    transitivePeerDependencies:
-      - '@samchon/openapi'
-      - '@types/node'
-      - jiti
-      - less
-      - lightningcss
-      - rollup
-      - sass
-      - sass-embedded
-      - stylus
-      - sugarss
-      - terser
-      - tsx
-      - yaml
-
   '@polka/url@1.0.0-next.28': {}
 
   '@rollup/pluginutils@5.1.4(rollup@4.35.0)':
@@ -1435,6 +1400,28 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.35.0':
     optional: true
+
+  '@ryoppippi/unplugin-typia@2.0.3(rollup@4.35.0)(svelte@5.23.0)(typescript@5.8.2)(typia@8.0.2(@samchon/openapi@3.0.0)(typescript@5.8.2))(vite@6.2.1(jiti@2.4.2)(lightningcss@1.29.2))':
+    dependencies:
+      '@rollup/pluginutils': 5.1.4(rollup@4.35.0)
+      consola: 3.4.0
+      defu: 6.1.4
+      diff-match-patch: 1.0.5
+      find-cache-dir: 5.0.0
+      magic-string: 0.30.17
+      pathe: 2.0.3
+      pkg-types: 2.1.0
+      type-fest: 4.37.0
+      typescript: 5.8.2
+      typia: 8.0.2(@samchon/openapi@3.0.0)(typescript@5.8.2)
+      unplugin: 2.2.0
+    optionalDependencies:
+      svelte: 5.23.0
+      vite: 6.2.1(jiti@2.4.2)(lightningcss@1.29.2)
+    transitivePeerDependencies:
+      - rollup
+
+  '@samchon/openapi@3.0.0': {}
 
   '@sveltejs/acorn-typescript@1.0.5(acorn@8.14.1)':
     dependencies:
@@ -1625,7 +1612,7 @@ snapshots:
 
   common-path-prefix@3.0.0: {}
 
-  confbox@0.1.8: {}
+  confbox@0.2.1: {}
 
   consola@3.4.0: {}
 
@@ -1699,6 +1686,8 @@ snapshots:
       '@jridgewell/sourcemap-codec': 1.5.0
 
   estree-walker@2.0.2: {}
+
+  exsolve@1.0.4: {}
 
   external-editor@3.1.0:
     dependencies:
@@ -1863,13 +1852,6 @@ snapshots:
 
   minimist@1.2.8: {}
 
-  mlly@1.7.4:
-    dependencies:
-      acorn: 8.14.1
-      pathe: 2.0.3
-      pkg-types: 1.3.1
-      ufo: 1.5.4
-
   mri@1.2.0: {}
 
   mrmime@2.0.1: {}
@@ -1914,8 +1896,6 @@ snapshots:
 
   path-parse@1.0.7: {}
 
-  pathe@1.1.2: {}
-
   pathe@2.0.3: {}
 
   picocolors@1.1.1: {}
@@ -1926,10 +1906,10 @@ snapshots:
     dependencies:
       find-up: 6.3.0
 
-  pkg-types@1.3.1:
+  pkg-types@2.1.0:
     dependencies:
-      confbox: 0.1.8
-      mlly: 1.7.4
+      confbox: 0.2.1
+      exsolve: 1.0.4
       pathe: 2.0.3
 
   postcss@8.5.3:
@@ -2097,21 +2077,11 @@ snapshots:
 
   type-fest@4.37.0: {}
 
-  typescript@5.6.3: {}
-
   typescript@5.8.2: {}
 
-  typia@7.6.4(typescript@5.6.3):
+  typia@8.0.2(@samchon/openapi@3.0.0)(typescript@5.8.2):
     dependencies:
-      commander: 10.0.1
-      comment-json: 4.2.5
-      inquirer: 8.2.6
-      package-manager-detector: 0.2.11
-      randexp: 0.5.3
-      typescript: 5.6.3
-
-  typia@8.0.2(typescript@5.8.2):
-    dependencies:
+      '@samchon/openapi': 3.0.0
       commander: 10.0.1
       comment-json: 4.2.5
       inquirer: 8.2.6
@@ -2119,9 +2089,7 @@ snapshots:
       randexp: 0.5.3
       typescript: 5.8.2
 
-  ufo@1.5.4: {}
-
-  unplugin@1.16.1:
+  unplugin@2.2.0:
     dependencies:
       acorn: 8.14.1
       webpack-virtual-modules: 0.6.2

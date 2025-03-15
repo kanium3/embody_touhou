@@ -28,6 +28,9 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
+      - name: Check formatted
+        run: biome ci .
+
       - name: build
         env:
             BASE_PATH: '/${{ github.event.repository.name }}'

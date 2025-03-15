@@ -1,0 +1,46 @@
+name: update-post.yml
+on:
+  repository_dispatch:
+    types: ["update_post"]
+
+jobs:
+  update_post:
+    name: "Update post list"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+      - name: "Run the update script"
+        id: "Script_Update_Post"
+        run: |
+          echo 'RESULT<<MESSAGE' >> "${GITHUB_OUTPUT}"
+               deno --quiet run --allow-read --allow-write ./scripts/update-post.ts \
+               --title=${{ github.event.client_payload.title }} \
+               --author=${{ github.event.client_payload.author }} \
+               --url=${{ github.event.client_payload.url }} \
+               --kind=${{ github.event.client_payload.kind }} \
+               ${{ github.event.client_payload.description == 0 && join('--description=', github.event.client_payload.description) || '' }} \
+               ${{ github.event.client_payload.date == 0 && join('--date=', github.event.client_payload.date) || '' }} \
+               >> "${GITHUB_OUTPUT}"
+          echo 'MESSAGE' >> "${GITHUB_OUTPUT}"
+      - name: "Push changes"
+        id: 'push'
+        if:
+          fromJSON(steps.script.outputs.RESULT).error == ''
+        env:
+          GIT_AUTHOR_NAME: '${{ github.actor }}'
+          # See https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address
+          GIT_AUTHOR_EMAIL: '${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com'
+          GIT_COMMITTER_NAME: 'github-actions[bot]'
+          GIT_COMMITTER_EMAIL: 'github-actions[bot]@users.noreply.github.com'
+        run: |
+          git add src/content.json
+          if git diff --cached --exit-code; then
+            exit
+          fi
+          git commit --message='Update content.json on #${{ github.event.client_payload.title }}
+          echo "COMMIT_HASH=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
+          git push
+

@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+	--color-aqn: #98254c;
+	--color-remilia-as-background: rgba(142, 0, 0, 0.125);
+	--color-remilia: rgba(142, 0, 0, 1);
+}

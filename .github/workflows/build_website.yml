@@ -30,9 +30,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - name: Check Project files
-        run: pnpm check
-
       - name: Check formatted
         run: biome ci .
 

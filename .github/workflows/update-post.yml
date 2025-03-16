@@ -16,20 +16,15 @@ jobs:
       - name: "Run the update script"
         id: "Script_Update_Post"
         run: |
-          echo 'RESULT<<MESSAGE' >> "${GITHUB_OUTPUT}"
-               deno --quiet run --allow-read --allow-write ./scripts/update-post.ts \
+               deno run --allow-read --allow-write ./scripts/update-post.ts \
                ${{ github.event.client_payload.title != '' && join('--title=', fromJSON(github.event.client_payload.title)) || '' }} \
                ${{ github.event.client_payload.author != '' && join('--author=', fromJSON(github.event.client_payload.author)) || '' }} \
                ${{ github.event.client_payload.url != '' && join('--url=', fromJSON(github.event.client_payload.url)) || '' }} \
                ${{ github.event.client_payload.kind != '' && join('--kind=',fromJSON(github.event.client_payload.kind)) || '' }} \
                ${{ github.event.client_payload.description != '' && join('--description=', fromJSON(github.event.client_payload.description)) || '' }} \
                ${{ github.event.client_payload.date != '' && join('--date=', fromJSON(github.event.client_payload.date)) || '' }} \
-               >> "${GITHUB_OUTPUT}"
-          echo 'MESSAGE' >> "${GITHUB_OUTPUT}"
       - name: "Push changes"
         id: 'push'
-        if:
-          fromJSON(steps.script.outputs.RESULT).error == ''
         env:
           GIT_AUTHOR_NAME: '${{ github.actor }}'
           # See https://docs.github.com/ja/account-and-profile/setting-up-and-managing-your-personal-account-on-github/managing-email-preferences/setting-your-commit-email-address

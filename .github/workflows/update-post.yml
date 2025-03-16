@@ -1,4 +1,5 @@
 name: update-post.yml
+run-name: Update ${{ github.event.client_payload.title }}
 on:
   repository_dispatch:
     types: ["update_post"]

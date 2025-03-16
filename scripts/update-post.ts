@@ -12,7 +12,8 @@ import { parseArgs } from "jsr:@std/cli/parse-args";
 import type { IPost, PostKind, Posts } from "../src/lib/index.ts";
 
 async function update_json(post: IPost) {
-	using json_file = await Deno.open("../src/content.json", {
+	// In GH Actions envrionment path
+	using json_file = await Deno.open("./src/content.json", {
 		write: true,
 		read: true,
 	});

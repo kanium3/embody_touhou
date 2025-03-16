@@ -17,12 +17,12 @@ jobs:
         run: |
           echo 'RESULT<<MESSAGE' >> "${GITHUB_OUTPUT}"
                deno --quiet run --allow-read --allow-write ./scripts/update-post.ts \
-               --title=${{ github.event.client_payload.title }} \
-               --author=${{ github.event.client_payload.author }} \
-               --url=${{ github.event.client_payload.url }} \
-               --kind=${{ github.event.client_payload.kind }} \
-               ${{ github.event.client_payload.description == 0 && join('--description=', github.event.client_payload.description) || '' }} \
-               ${{ github.event.client_payload.date == 0 && join('--date=', github.event.client_payload.date) || '' }} \
+               ${{ github.event.client_payload.title != 0 && join('--title=', github.event.client_payload.title) || '' }} \
+               ${{ github.event.client_payload.author != 0 && join('--author=', github.event.client_payload.author) || '' }} \
+               ${{ github.event.client_payload.url != 0 && join('--url=', github.event.client_payload.url) || '' }} \
+               ${{ github.event.client_payload.kind != 0 && join('--kind=', github.event.client_payload.kind) || '' }} \
+               ${{ github.event.client_payload.description != 0 && join('--description=', github.event.client_payload.description) || '' }} \
+               ${{ github.event.client_payload.date != 0 && join('--date=', github.event.client_payload.date) || '' }} \
                >> "${GITHUB_OUTPUT}"
           echo 'MESSAGE' >> "${GITHUB_OUTPUT}"
       - name: "Push changes"

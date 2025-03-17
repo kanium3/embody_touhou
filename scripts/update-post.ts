@@ -13,21 +13,11 @@ import type { IPost, PostKind, Posts } from "../src/lib/index.ts";
 
 async function update_json(post: IPost) {
 	// In GH Actions envrionment path
-	using json_file = await Deno.open("./src/content.json", {
-		write: true,
-		read: true,
-	});
-	await json_file.truncate();
-	const decoder = new TextDecoder();
-	const encoder = new TextEncoder();
-
-	for await (const chunk of json_file.readable) {
-		const decoded = decoder.decode(chunk);
-		const json: Posts = JSON.parse(decoded);
-		json.push(post);
-		const updated_json_as_string = JSON.stringify(json);
-		await json_file.write(encoder.encode(updated_json_as_string));
-	}
+	const json_file = await Deno.readTextFile("./src/content.json");
+	const json: Posts = JSON.parse(json_file);
+	json.push(post);
+	const updated_json_as_string = JSON.stringify(json);
+	await Deno.writeTextFile("./src/content.json", `${updated_json_as_string}\n`);
 }
 
 function to_post(

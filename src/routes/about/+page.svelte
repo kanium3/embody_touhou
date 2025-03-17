@@ -3,7 +3,6 @@
 <h2 class="text-2xl my-2.5">詳しく</h2>
 <p class="break-all">
     <a href="https://touhou-project.news/touhou_project/" class="underline decoration-2 decoration-aqn">東方Project</a>に関するブログ記事やプレゼンテーション、動画などを作成し、それを発表するという企画です。<br />
-    また、さながらアドベントカレンダーのような形式で、毎週日曜日に発表活動を行うことで東方Projectの姿を見出していく狙いもあります。
 </p>
 <p>ざっくりとした説明は<a href="https://note.com/kanium3/n/n35bbe478eeab" class="underline decoration-2 decoration-aqn">この記事</a>にも載っているので見てみてください。</p>
 <h2 class="text-2xl my-2.5">参加したい場合</h2>

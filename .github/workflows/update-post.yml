@@ -21,12 +21,12 @@ jobs:
         id: "Script_Update_Post"
         if: ${{ github.event.client_payload.title != '' &&  github.event.client_payload.author != '' && github.event.client_payload.url != '' && github.event.client_payload.date != '' }}
         env:
-          Title: ${{ github.event.client_payload.title }}
-          Author: ${{ github.event.client_payload.author }}
+          Title: "${{ github.event.client_payload.title }}"
+          Author: "${{ github.event.client_payload.author }}"
           Url: ${{ github.event.client_payload.url }}
           Kind: ${{ github.event.client_payload.kind }}
-          Description: ${{ github.event.client_payload.description }}
-          Date: ${{ github.event.client_payload.date }}
+          Description: "${{ github.event.client_payload.description }}"
+          Date: "${{ github.event.client_payload.date }}"
         run: |
                deno run --allow-read --allow-write ./scripts/update-post.ts \
                ${{ github.event.client_payload.title != '' && format('--title={0}', env.Title) || '' }} \

@@ -29,7 +29,7 @@ jobs:
         run: pnpm install
 
       - name: Check formatted
-        run: biome ci src/
+        run: biome ci .
 
       - name: build
         env:

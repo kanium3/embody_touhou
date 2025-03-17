@@ -42,7 +42,7 @@ jobs:
           if git diff --cached --exit-code; then
             exit
           fi
-          git commit --message='Update content.json on #${{ github.event.client_payload.title }}
+          git commit --message='Update content.json on #${{ github.event.client_payload.title }}'
           echo "COMMIT_HASH=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
           git push
 

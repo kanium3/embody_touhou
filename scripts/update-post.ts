@@ -17,6 +17,7 @@ async function update_json(post: IPost) {
 		write: true,
 		read: true,
 	});
+	await json_file.truncate();
 	const decoder = new TextDecoder();
 	const encoder = new TextEncoder();
 

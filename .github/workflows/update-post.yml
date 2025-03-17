@@ -22,12 +22,12 @@ jobs:
         if: ${{ github.event.client_payload.title != '' &&  github.event.client_payload.author != '' && github.event.client_payload.url != '' && github.event.client_payload.date != '' }}
         run: |
                deno run --allow-read --allow-write ./scripts/update-post.ts \
-               ${{ github.event.client_payload.title != '' && join('--title=', github.event.client_payload.title) || '' }} \
-               ${{ github.event.client_payload.author != '' && join('--author=', github.event.client_payload.author) || '' }} \
-               ${{ github.event.client_payload.url != '' && join('--url=', github.event.client_payload.url) || '' }} \
-               ${{ github.event.client_payload.kind != '' && join('--kind=', github.event.client_payload.kind) || '' }} \
-               ${{ github.event.client_payload.description != '' && join('--description=', github.event.client_payload.description) || '' }} \
-               ${{ github.event.client_payload.date != '' && join('--date=', github.event.client_payload.date) || '' }} \
+               ${{ github.event.client_payload.title != '' && format('--title={0}', github.event.client_payload.title) || '' }} \
+               ${{ github.event.client_payload.author != '' && format('--author={0}', github.event.client_payload.author) || '' }} \
+               ${{ github.event.client_payload.url != '' && format('--url={0}', github.event.client_payload.url) || '' }} \
+               ${{ github.event.client_payload.kind != '' && format('--kind={0}', github.event.client_payload.kind) || '' }} \
+               ${{ github.event.client_payload.description != '' && format('--description={0}', github.event.client_payload.description) || '' }} \
+               ${{ github.event.client_payload.date != '' && format('--date={0}', github.event.client_payload.date) || '' }} \
       - name: "Push changes"
         id: 'push'
         if: ${{ success() }}

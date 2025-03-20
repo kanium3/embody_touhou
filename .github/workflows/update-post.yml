@@ -29,12 +29,12 @@ jobs:
           Date: "${{ github.event.client_payload.date }}"
         run: |
                deno run --allow-read --allow-write ./scripts/update-post.ts \
-               ${{ github.event.client_payload.title != '' && format('--title={0}', env.Title) || '' }} \
-               ${{ github.event.client_payload.author != '' && format('--author={0}', env.Author) || '' }} \
-               ${{ github.event.client_payload.url != '' && format('--url={0}', env.Url) || '' }} \
-               ${{ github.event.client_payload.kind != '' && format('--kind={0}', env.Kind) || '' }} \
-               ${{ github.event.client_payload.description != '' && format('--description={0}', env.Description) || '' }} \
-               ${{ github.event.client_payload.date != '' && format('--date={0}', env.Date) || '' }} \
+               ${{ github.event.client_payload.title != '' && format('--title="{0}"', env.Title) || '' }} \
+               ${{ github.event.client_payload.author != '' && format('--author="{0}"', env.Author) || '' }} \
+               ${{ github.event.client_payload.url != '' && format('--url="{0}"', env.Url) || '' }} \
+               ${{ github.event.client_payload.kind != '' && format('--kind="{0}"', env.Kind) || '' }} \
+               ${{ github.event.client_payload.description != '' && format('--description="{0}"', env.Description) || '' }} \
+               ${{ github.event.client_payload.date != '' && format('--date="{0}"', env.Date) || '' }} \
       - name: "Push changes"
         id: 'push'
         if: ${{ success() }}

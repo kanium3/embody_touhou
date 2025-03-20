@@ -52,4 +52,13 @@ jobs:
           git commit --message='Update content.json on #${{ github.event.client_payload.title }}'
           echo "COMMIT_HASH=$(git rev-parse HEAD)" >> "${GITHUB_OUTPUT}"
           git push
-
+      - name: dispatch building website
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.actions.createWorkflowDispatch({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              workflow_id: 'build_website.yml',
+              ref: 'main',
+            }) 

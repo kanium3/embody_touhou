@@ -8,7 +8,7 @@ const { children } = $props();
     <Header />
 </header>
 <main class="flex justify-center items-baseline">
-    <div class="max-w-6/12 px-4">
+    <div class="max-w-3/4 md:max-w-6/12 px-4">
         {@render children()}
     </div>
 </main>

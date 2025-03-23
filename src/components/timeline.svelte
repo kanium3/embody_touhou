@@ -11,11 +11,11 @@ const { posts }: { posts: Posts } = $props();
 <ul class="relative border-s-5 m-2 before:bg-aqn before:content-[' ']">
     {#each posts as post}
         {#if post.kind === "Article" }
-            <li>{@render post_as_article(post.url, post.title, post.author, post.date ?? (new Date().toLocaleDateString()))}</li>
+            <li>{@render post_as_article(post.url, post.title, post.author, post.date ?? new Date().toLocaleDateString())}</li>
         {:else if post.kind === "Video" }
-            <li>{@render post_as_video(post.url, post.title, post.author, post.date ?? (new Date().toLocaleDateString()))}</li>
+            <li>{@render post_as_video(post.url, post.title, post.author, post.date ?? new Date().toLocaleDateString())}</li>
         {:else}
-            <li>{@render post_as_presentation(post.url, post.title, post.author, post.date ?? (new Date().toLocaleDateString()))}</li>
+            <li>{@render post_as_presentation(post.url, post.title, post.author, post.date ?? new Date().toLocaleDateString())}</li>
         {/if}
     {/each}
 </ul>

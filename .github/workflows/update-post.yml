@@ -3,6 +3,7 @@ run-name: Update ${{ github.event.client_payload.title }}
 on:
   repository_dispatch:
     types: ["update_post"]
+  workflow_dispatch:
 
 jobs:
   update_post:

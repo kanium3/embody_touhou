@@ -2,6 +2,7 @@ name: build_website.yml
 on:
   push:
     branches: ["main"]
+  workflow_dispatch:
 
 jobs:
   build_website:
@@ -23,7 +24,6 @@ jobs:
         uses: biomejs/setup-biome@v2
         with:
           version: latest
-
 
       - name: Install dependencies
         run: pnpm install

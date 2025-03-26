@@ -1,11 +1,11 @@
 <script lang="ts">
-import type { Posts } from "$lib";
+import type { IPostAsPageSource } from "$lib/post_source";
 import {
 	post_as_article,
 	post_as_presentation,
 	post_as_video,
 } from "./post.svelte";
-const { posts }: { posts: Posts } = $props();
+const { posts }: { posts: IPostAsPageSource[] } = $props();
 </script>
 
 <ul class="relative border-s-5 m-2 before:bg-aqn before:content-[' ']">

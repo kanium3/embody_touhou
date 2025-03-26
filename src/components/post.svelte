@@ -8,7 +8,7 @@ export { post_as_article, post_as_presentation, post_as_video };
     <a href="{url}">
         <div class="m-3 p-2 shadow-xl border-3 border-remilia rounded-lg">
             <Icon icon="material-symbols:article" width="56" height="56" />
-            <h3 class="text-2xl">{title}</h3>
+            <h3 class="text-2xl break-keep break-words">{@html title}</h3>
             <p>{author}</p>
             <span>{date}</span>
         </div>
@@ -19,7 +19,7 @@ export { post_as_article, post_as_presentation, post_as_video };
     <a href="{url}">
         <div class="m-3 p-2 shadow-xl border-3 border-remilia rounded-lg">
             <Icon icon="octicon:video-16" width="56" height="56" />
-            <h3 class="text-2xl">{title}</h3>
+            <h3 class="text-2xl break-keep break-words">{@html title}</h3>
             <p>{author}</p>
             <span>{date}</span>
         </div>
@@ -30,7 +30,7 @@ export { post_as_article, post_as_presentation, post_as_video };
     <a href="{url}">
         <div class="m-3 p-2 shadow-xl border-3 border-remilia rounded-lg">
             <Icon icon="mdi:presentation" width="56" height="56" />
-            <h3 class="text-2xl">{title}</h3>
+            <h3 class="text-2xl break-keep break-words">{@html title}</h3>
             <p>{author}</p>
             <span>{date}</span>
         </div>

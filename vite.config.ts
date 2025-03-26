@@ -9,4 +9,5 @@ export default defineConfig({
 		tailwindcss(),
 		sveltekit(),
 	],
+	resolve: process.env.VITEST ? { conditions: ["browser"] } : undefined,
 });
